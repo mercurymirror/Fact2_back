@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_cast_members",
+  "info": {
+    "displayName": "Cast Member",
+    "description": "Membre de la distribution avec son rôle/fonction"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "fonction": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

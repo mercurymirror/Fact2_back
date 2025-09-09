@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "spectacles",
+  "info": {
+    "singularName": "spectacle",
+    "pluralName": "spectacles",
+    "displayName": "Spectacle"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "galery": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "cast": {
+      "type": "component",
+      "component": "cast.cast-member",
+      "repeatable": true
+    }
+  }
+}
