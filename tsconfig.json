@@ -13,7 +13,9 @@
     "noEmitOnError": true,
     "noImplicitThis": true,
     "outDir": "dist",
-    "rootDir": "."
+    "rootDir": ".",
+    "typeRoots": ["./node_modules/@types"],
+    "types": ["node", "estree", "json-schema"]
   },
   "include": [
     // Include root files
