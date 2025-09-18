@@ -41,6 +41,12 @@
       "type": "component",
       "component": "cast.cast-member",
       "repeatable": true
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category.category",
+      "mappedBy": "spectacles_category"
     }
   }
 }
