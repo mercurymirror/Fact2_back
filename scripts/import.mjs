@@ -13,7 +13,8 @@ if (!STRAPI_API_TOKEN) {
 }
 
 // URL de l'API distante Strapi
-const STRAPI_API_URL = "https://fact2-back.onrender.com/api/spectacles";
+const STRAPI_API_URL =
+  "https://fearless-boot-f25ab4f58d.strapiapp.com/api/spectacles";
 
 // Charge le fichier JSON à importer
 const raw = fs.readFileSync(path.join("./scripts/spectacles.json"), "utf-8");

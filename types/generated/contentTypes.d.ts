@@ -603,6 +603,8 @@ export interface ApiSpectacleSpectacle extends Struct.CollectionTypeSchema {
   };
   attributes: {
     cast: Schema.Attribute.Component<'cast.cast-member', true>;
+    Color: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
