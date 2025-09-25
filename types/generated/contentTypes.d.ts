@@ -618,6 +618,7 @@ export interface ApiSpectacleSpectacle extends Struct.CollectionTypeSchema {
       'api::spectacle.spectacle'
     > &
       Schema.Attribute.Private;
+    position: Schema.Attribute.Integer;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'title'>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
