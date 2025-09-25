@@ -13,12 +13,6 @@
   "attributes": {
     "name": {
       "type": "string"
-    },
-    "spectacles_category": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::spectacle.spectacle",
-      "inversedBy": "categories"
     }
   }
 }
