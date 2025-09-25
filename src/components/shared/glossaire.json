@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_shared_glossaires",
+  "info": {
+    "displayName": "Glossaire",
+    "icon": "book"
+  },
+  "options": {},
+  "attributes": {
+    "dico": {
+      "type": "component",
+      "component": "shared.definition",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

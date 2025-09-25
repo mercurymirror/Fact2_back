@@ -12,6 +12,28 @@ export interface CastCastMember extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedDefinition extends Struct.ComponentSchema {
+  collectionName: 'components_shared_definitions';
+  info: {
+    displayName: 'Definition';
+  };
+  attributes: {
+    definition: Schema.Attribute.Text;
+    mot: Schema.Attribute.String;
+  };
+}
+
+export interface SharedGlossaire extends Struct.ComponentSchema {
+  collectionName: 'components_shared_glossaires';
+  info: {
+    displayName: 'Glossaire';
+    icon: 'book';
+  };
+  attributes: {
+    dico: Schema.Attribute.Component<'shared.definition', true>;
+  };
+}
+
 export interface SharedMedia extends Struct.ComponentSchema {
   collectionName: 'components_shared_media';
   info: {
@@ -78,6 +100,8 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'cast.cast-member': CastCastMember;
+      'shared.definition': SharedDefinition;
+      'shared.glossaire': SharedGlossaire;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;

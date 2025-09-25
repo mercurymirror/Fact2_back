@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_shared_definitions",
+  "info": {
+    "displayName": "Definition"
+  },
+  "options": {},
+  "attributes": {
+    "mot": {
+      "type": "string"
+    },
+    "definition": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}
