@@ -48,6 +48,18 @@ export interface SharedGlossaire extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedInfos extends Struct.ComponentSchema {
+  collectionName: 'components_shared_infos';
+  info: {
+    displayName: 'infos';
+    icon: 'pinMap';
+  };
+  attributes: {
+    address: Schema.Attribute.String;
+    map: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+  };
+}
+
 export interface SharedMedia extends Struct.ComponentSchema {
   collectionName: 'components_shared_media';
   info: {
@@ -117,6 +129,7 @@ declare module '@strapi/strapi' {
       'shared.contact': SharedContact;
       'shared.definition': SharedDefinition;
       'shared.glossaire': SharedGlossaire;
+      'shared.infos': SharedInfos;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;

@@ -29,6 +29,11 @@
       "type": "component",
       "component": "shared.contact",
       "repeatable": false
+    },
+    "infos": {
+      "type": "component",
+      "component": "shared.infos",
+      "repeatable": false
     }
   }
 }
