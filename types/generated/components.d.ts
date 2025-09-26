@@ -20,6 +20,10 @@ export interface SharedContact extends Struct.ComponentSchema {
   };
   attributes: {
     facebook: Schema.Attribute.String;
+    IconFb: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    IconIg: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    iconMail: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    iconPhone: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     instagram: Schema.Attribute.String;
     mail: Schema.Attribute.Email;
     phone: Schema.Attribute.String;
