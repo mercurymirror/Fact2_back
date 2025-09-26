@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_shared_contacts",
+  "info": {
+    "displayName": "contact",
+    "icon": "envelop"
+  },
+  "options": {},
+  "attributes": {
+    "mail": {
+      "type": "email"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "facebook": {
+      "type": "string"
+    },
+    "instagram": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

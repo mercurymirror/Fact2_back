@@ -394,6 +394,7 @@ export interface ApiAboutAbout extends Struct.SingleTypeSchema {
         'shared.glossaire',
       ]
     >;
+    contact: Schema.Attribute.Component<'shared.contact', false>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

@@ -24,6 +24,11 @@
         "shared.slider",
         "shared.glossaire"
       ]
+    },
+    "contact": {
+      "type": "component",
+      "component": "shared.contact",
+      "repeatable": false
     }
   }
 }

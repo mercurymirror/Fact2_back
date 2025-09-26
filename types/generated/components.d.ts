@@ -12,6 +12,20 @@ export interface CastCastMember extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedContact extends Struct.ComponentSchema {
+  collectionName: 'components_shared_contacts';
+  info: {
+    displayName: 'contact';
+    icon: 'envelop';
+  };
+  attributes: {
+    facebook: Schema.Attribute.String;
+    instagram: Schema.Attribute.String;
+    mail: Schema.Attribute.Email;
+    phone: Schema.Attribute.String;
+  };
+}
+
 export interface SharedDefinition extends Struct.ComponentSchema {
   collectionName: 'components_shared_definitions';
   info: {
@@ -100,6 +114,7 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'cast.cast-member': CastCastMember;
+      'shared.contact': SharedContact;
       'shared.definition': SharedDefinition;
       'shared.glossaire': SharedGlossaire;
       'shared.media': SharedMedia;
