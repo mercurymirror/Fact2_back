@@ -33,6 +33,10 @@
     },
     "date_affichee": {
       "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "Titre"
     }
   }
 }
