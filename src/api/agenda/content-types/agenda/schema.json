@@ -14,9 +14,6 @@
     "Titre": {
       "type": "string"
     },
-    "date": {
-      "type": "string"
-    },
     "lieu": {
       "type": "string"
     },
@@ -26,6 +23,15 @@
       "target": "api::category.category"
     },
     "link_city": {
+      "type": "string"
+    },
+    "date": {
+      "type": "date"
+    },
+    "position": {
+      "type": "integer"
+    },
+    "date_affichee": {
       "type": "string"
     }
   }

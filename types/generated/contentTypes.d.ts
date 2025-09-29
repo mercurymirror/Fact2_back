@@ -425,7 +425,8 @@ export interface ApiAgendaAgenda extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    date: Schema.Attribute.String;
+    date: Schema.Attribute.Date;
+    date_affichee: Schema.Attribute.String;
     lieu: Schema.Attribute.String;
     link_city: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -434,6 +435,7 @@ export interface ApiAgendaAgenda extends Struct.CollectionTypeSchema {
       'api::agenda.agenda'
     > &
       Schema.Attribute.Private;
+    position: Schema.Attribute.Integer;
     publishedAt: Schema.Attribute.DateTime;
     Titre: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
