@@ -427,6 +427,7 @@ export interface ApiAgendaAgenda extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     date: Schema.Attribute.String;
     lieu: Schema.Attribute.String;
+    link_city: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
