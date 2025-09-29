@@ -622,7 +622,7 @@ export interface ApiSpectacleSpectacle extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     description: Schema.Attribute.RichText;
     encours: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
-    galery: Schema.Attribute.Media<'images', true>;
+    gallery: Schema.Attribute.Media<'images', true>;
     image: Schema.Attribute.Media<'images'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<

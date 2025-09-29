@@ -30,7 +30,7 @@
         "images"
       ]
     },
-    "galery": {
+    "gallery": {
       "type": "media",
       "multiple": true,
       "allowedTypes": [
