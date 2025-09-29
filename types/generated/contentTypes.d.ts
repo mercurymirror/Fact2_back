@@ -437,8 +437,8 @@ export interface ApiAgendaAgenda extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     position: Schema.Attribute.Integer;
     publishedAt: Schema.Attribute.DateTime;
-    slug: Schema.Attribute.UID<'Titre'>;
-    Titre: Schema.Attribute.String;
+    slug: Schema.Attribute.UID;
+    titre: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

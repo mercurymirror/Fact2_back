@@ -11,7 +11,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Titre": {
+    "titre": {
       "type": "string"
     },
     "lieu": {
@@ -35,8 +35,7 @@
       "type": "string"
     },
     "slug": {
-      "type": "uid",
-      "targetField": "Titre"
+      "type": "uid"
     }
   }
 }
