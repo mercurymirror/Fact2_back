@@ -536,7 +536,7 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
       'api::category.category'
     > &
       Schema.Attribute.Private;
-    name: Schema.Attribute.String;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -630,6 +630,7 @@ export interface ApiSpectacleSpectacle extends Struct.CollectionTypeSchema {
       'api::spectacle.spectacle'
     > &
       Schema.Attribute.Private;
+    plus_qu_une_piece: Schema.Attribute.Blocks;
     position: Schema.Attribute.Integer;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'title'>;

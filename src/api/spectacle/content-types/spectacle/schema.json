@@ -53,6 +53,9 @@
     },
     "position": {
       "type": "integer"
+    },
+    "plus_qu_une_piece": {
+      "type": "blocks"
     }
   }
 }
