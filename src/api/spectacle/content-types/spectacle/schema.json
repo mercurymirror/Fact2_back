@@ -56,6 +56,11 @@
     },
     "plus_qu_une_piece": {
       "type": "blocks"
+    },
+    "secondaryColor": {
+      "type": "customField",
+      "customField": "plugin::color-picker.color",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
     }
   }
 }

@@ -693,6 +693,8 @@ export interface ApiSpectacleSpectacle extends Struct.CollectionTypeSchema {
     plus_qu_une_piece: Schema.Attribute.Blocks;
     position: Schema.Attribute.Integer;
     publishedAt: Schema.Attribute.DateTime;
+    secondaryColor: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
     slug: Schema.Attribute.UID<'title'>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
