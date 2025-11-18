@@ -576,6 +576,66 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiLegendeLegende extends Struct.SingleTypeSchema {
+  collectionName: 'legendes';
+  info: {
+    displayName: 'L\u00E9gende';
+    pluralName: 'legendes';
+    singularName: 'legende';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    layout: Schema.Attribute.DynamicZone<['shared.glossaire']>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::legende.legende'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiMembreMembre extends Struct.CollectionTypeSchema {
+  collectionName: 'membres';
+  info: {
+    displayName: 'Membre';
+    pluralName: 'membres';
+    singularName: 'membre';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    bio: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    illustration: Schema.Attribute.Media<'images' | 'files'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::membre.membre'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    participations: Schema.Attribute.Component<'membre.participation', true>;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'name'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiPodcastPodcast extends Struct.CollectionTypeSchema {
   collectionName: 'podcasts';
   info: {
@@ -1156,6 +1216,8 @@ declare module '@strapi/strapi' {
       'api::author.author': ApiAuthorAuthor;
       'api::category.category': ApiCategoryCategory;
       'api::global.global': ApiGlobalGlobal;
+      'api::legende.legende': ApiLegendeLegende;
+      'api::membre.membre': ApiMembreMembre;
       'api::podcast.podcast': ApiPodcastPodcast;
       'api::spectacle.spectacle': ApiSpectacleSpectacle;
       'plugin::content-releases.release': PluginContentReleasesRelease;

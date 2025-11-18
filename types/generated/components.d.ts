@@ -12,6 +12,22 @@ export interface CastCastMember extends Struct.ComponentSchema {
   };
 }
 
+export interface MembreParticipation extends Struct.ComponentSchema {
+  collectionName: 'components_membre_participations';
+  info: {
+    displayName: 'Participation \u00E0 un spectacle';
+    icon: 'theater-masks';
+  };
+  attributes: {
+    ordre: Schema.Attribute.Integer;
+    spectacle: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::spectacle.spectacle'
+    >;
+    statut: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SharedContact extends Struct.ComponentSchema {
   collectionName: 'components_shared_contacts';
   info: {
@@ -130,6 +146,7 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'cast.cast-member': CastCastMember;
+      'membre.participation': MembreParticipation;
       'shared.contact': SharedContact;
       'shared.definition': SharedDefinition;
       'shared.glossaire': SharedGlossaire;

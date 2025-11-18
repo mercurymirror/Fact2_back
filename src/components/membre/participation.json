@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_membre_participations",
+  "info": {
+    "displayName": "Participation à un spectacle",
+    "icon": "theater-masks"
+  },
+  "options": {},
+  "attributes": {
+    "spectacle": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::spectacle.spectacle"
+    },
+    "statut": {
+      "type": "string",
+      "required": true
+    },
+    "ordre": {
+      "type": "integer"
+    }
+  }
+}

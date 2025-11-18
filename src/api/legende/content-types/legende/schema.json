@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "legendes",
+  "info": {
+    "singularName": "legende",
+    "pluralName": "legendes",
+    "displayName": "Légende"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "layout": {
+      "type": "dynamiczone",
+      "components": [
+        "shared.glossaire"
+      ]
+    }
+  }
+}
