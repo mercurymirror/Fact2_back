@@ -53,6 +53,7 @@ export interface SharedDefinition extends Struct.ComponentSchema {
   };
   attributes: {
     definition: Schema.Attribute.Text;
+    illustration: Schema.Attribute.Media<'files' | 'images'>;
     mot: Schema.Attribute.String;
   };
 }

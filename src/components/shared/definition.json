@@ -10,6 +10,14 @@
     },
     "definition": {
       "type": "text"
+    },
+    "illustration": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "files",
+        "images"
+      ]
     }
   },
   "config": {}
