@@ -7,12 +7,20 @@ import { factories } from '@strapi/strapi'
 export default factories.createCoreController('api::legende.legende', () => ({
   async find(ctx) {
     // Force le populate profond pour récupérer le glossaire avec les illustrations
-    // Pour les dynamic zones, on doit utiliser '*' car elles sont polymorphiques
+    // On utilise 'on' pour cibler spécifiquement le composant glossaire dans la dynamic zone
     ctx.query = {
       ...ctx.query,
       populate: {
         layout: {
-          populate: '*',
+          on: {
+            'shared.glossaire': {
+              populate: {
+                dico: {
+                  populate: ['illustration'],
+                },
+              },
+            },
+          },
         },
       },
     };
