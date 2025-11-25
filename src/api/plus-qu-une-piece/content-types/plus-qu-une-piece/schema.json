@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "plus_qu_une_pieces",
+  "info": {
+    "singularName": "plus-qu-une-piece",
+    "pluralName": "plus-qu-une-pieces",
+    "displayName": "Plus qu'une pièce"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "cast": {
+      "type": "component",
+      "component": "cast.cast-member",
+      "repeatable": true
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "gallery": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "spectacle": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::spectacle.spectacle",
+      "inversedBy": "plus_qu_une_pieces"
+    }
+  }
+}

@@ -636,6 +636,42 @@ export interface ApiMembreMembre extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiPlusQuUnePiecePlusQuUnePiece
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'plus_qu_une_pieces';
+  info: {
+    displayName: "Plus qu'une pi\u00E8ce";
+    pluralName: 'plus-qu-une-pieces';
+    singularName: 'plus-qu-une-piece';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    cast: Schema.Attribute.Component<'cast.cast-member', true>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Blocks;
+    gallery: Schema.Attribute.Media<'images', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::plus-qu-une-piece.plus-qu-une-piece'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    spectacle: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::spectacle.spectacle'
+    >;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiPodcastPodcast extends Struct.CollectionTypeSchema {
   collectionName: 'podcasts';
   info: {
@@ -691,6 +727,10 @@ export interface ApiSpectacleSpectacle extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     plus_qu_une_piece: Schema.Attribute.Blocks;
+    plus_qu_une_pieces: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::plus-qu-une-piece.plus-qu-une-piece'
+    >;
     position: Schema.Attribute.Integer;
     publishedAt: Schema.Attribute.DateTime;
     secondaryColor: Schema.Attribute.String &
@@ -1220,6 +1260,7 @@ declare module '@strapi/strapi' {
       'api::global.global': ApiGlobalGlobal;
       'api::legende.legende': ApiLegendeLegende;
       'api::membre.membre': ApiMembreMembre;
+      'api::plus-qu-une-piece.plus-qu-une-piece': ApiPlusQuUnePiecePlusQuUnePiece;
       'api::podcast.podcast': ApiPodcastPodcast;
       'api::spectacle.spectacle': ApiSpectacleSpectacle;
       'plugin::content-releases.release': PluginContentReleasesRelease;

@@ -61,6 +61,12 @@
       "type": "customField",
       "customField": "plugin::color-picker.color",
       "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+    },
+    "plus_qu_une_pieces": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::plus-qu-une-piece.plus-qu-une-piece",
+      "mappedBy": "spectacle"
     }
   }
 }
