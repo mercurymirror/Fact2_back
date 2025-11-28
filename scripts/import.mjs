@@ -14,26 +14,29 @@ if (!STRAPI_API_TOKEN) {
 
 // URL de l'API distante Strapi
 const STRAPI_API_URL =
-  "https://fearless-boot-f25ab4f58d.strapiapp.com/api/spectacles";
+  "https://fearless-boot-f25ab4f58d.strapiapp.com/api/podcasts";
 
 // Charge le fichier JSON à importer
-const raw = fs.readFileSync(path.join("./scripts/spectacles.json"), "utf-8");
+const raw = fs.readFileSync(path.join("./scripts/podcasts.json"), "utf-8");
 const json = JSON.parse(raw);
 
-// Prépare les données
-const spectacles = json.data.map((item) => ({
+// Prépare les données (sans les images pour le moment)
+const podcasts = json.data.map((item) => ({
   title: item.title,
-  description: item.description,
-  slug: item.slug,
+  text: item.text,
+  mediaplayer: item.mediaplayer,
+  author: item.author,
+  date: item.date,
+  // image: item.image, // Temporairement désactivé - nécessite upload séparé
 }));
 
-console.log(`📥 ${spectacles.length} spectacles prêts à l’import`);
+console.log(`📥 ${podcasts.length} podcasts prêts à l’import`);
 
-for (const spectacle of spectacles) {
+for (const podcast of podcasts) {
   try {
     // Vérifie si le spectacle existe déjà
     const resCheck = await fetch(
-      `${STRAPI_API_URL}?filters[title][$eq]=${encodeURIComponent(spectacle.title)}`,
+      `${STRAPI_API_URL}?filters[title][$eq]=${encodeURIComponent(podcast.title)}`,
       {
         headers: {
           Authorization: `Bearer ${STRAPI_API_TOKEN}`,
@@ -43,7 +46,7 @@ for (const spectacle of spectacles) {
     const existing = await resCheck.json();
 
     if (existing.data && existing.data.length > 0) {
-      console.log(`⚠️ Déjà présent : ${spectacle.title}`);
+      console.log(`⚠️ Déjà présent : ${podcast.title}`);
       continue;
     }
 
@@ -54,7 +57,7 @@ for (const spectacle of spectacles) {
         Authorization: `Bearer ${STRAPI_API_TOKEN}`,
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ data: spectacle }),
+      body: JSON.stringify({ data: podcast }),
     });
 
     if (!resCreate.ok) {
@@ -62,7 +65,7 @@ for (const spectacle of spectacles) {
       throw new Error(`HTTP ${resCreate.status}: ${errText}`);
     }
 
-    console.log(`✅ Importé : ${spectacle.title}`);
+    console.log(`✅ Importé : ${podcast.title}`);
   } catch (err) {
     console.error("❌ Erreur:", err.message);
   }

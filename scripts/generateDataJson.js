@@ -1,45 +1,34 @@
 // ./scripts/generateDataJson.js (CommonJS + import dynamique)
 const fs = require("fs");
 
-async function fetchSpectacles() {
+async function fetchPodcasts() {
   const fetch = (await import("node-fetch")).default; // <- import dynamique
-  const response = await fetch("https://ciefact.herokuapp.com/spectacles");
+  const response = await fetch("https://ciefact.herokuapp.com/podcasts");
   const json = await response.json();
 
-  return json.map((spectacle) => {
-    const image = spectacle.image
+  return json.map((podcast) => {
+    const image = podcast.image
       ? {
-          ...spectacle.image,
-          formats: spectacle.image.formats || {},
-          url: spectacle.image.url || null,
+          ...podcast.image,
+          formats: podcast.image.formats || {},
+          url: podcast.image.url || null,
         }
       : null;
 
-    const galery = Array.isArray(spectacle.galery)
-      ? spectacle.galery.map((img) => ({
-          ...img,
-          formats: img.formats || {},
-          url: img.url || null,
-        }))
-      : null;
-
     return {
-      title: spectacle.title || null,
-      description: spectacle.description || null,
-      slug:
-        spectacle.slug ||
-        (spectacle.title
-          ? spectacle.title.toLowerCase().replace(/\s+/g, "-")
-          : null),
+      title: podcast.title || null,
+      text: podcast.text || null,
+      mediaplayer: podcast.mediaplayer || null,
+      author: podcast.author || null,
+      date: podcast.date || null,
       image,
-      galery,
     };
   });
 }
 
 async function generateDataJson() {
-  const spectacles = await fetchSpectacles();
-  const dataJson = { data: spectacles };
+  const podcasts = await fetchPodcasts();
+  const dataJson = { data: podcasts };
   fs.writeFileSync("./scripts/data.json", JSON.stringify(dataJson, null, 2));
   console.log("Fichier data.json généré avec succès !");
 }
