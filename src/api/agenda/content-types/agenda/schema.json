@@ -12,10 +12,12 @@
   "pluginOptions": {},
   "attributes": {
     "titre": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "lieu": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "category": {
       "type": "relation",
@@ -26,17 +28,25 @@
       "type": "string"
     },
     "date": {
-      "type": "date"
+      "type": "date",
+      "required": true
     },
     "position": {
       "type": "integer"
     },
     "date_affichee": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "slug": {
       "type": "uid",
-      "targetField": "titre"
+      "targetField": "titre",
+      "required": true
+    },
+    "plus_qu_une_piece": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::plus-qu-une-piece.plus-qu-une-piece"
     }
   }
 }
