@@ -12,6 +12,9 @@
   },
   "pluginOptions": {},
   "attributes": {
+    "title": {
+      "type": "string"
+    },
     "blocks": {
       "type": "dynamiczone",
       "components": [
