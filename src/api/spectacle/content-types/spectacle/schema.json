@@ -67,6 +67,12 @@
       "relation": "oneToMany",
       "target": "api::plus-qu-une-piece.plus-qu-une-piece",
       "mappedBy": "spectacle"
+    },
+    "agenda": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::agenda.agenda",
+      "mappedBy": "spectacle"
     }
   }
 }

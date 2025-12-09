@@ -403,7 +403,6 @@ export interface ApiAboutAbout extends Struct.SingleTypeSchema {
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::about.about'> &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -421,7 +420,6 @@ export interface ApiAgendaAgenda extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    category: Schema.Attribute.Relation<'oneToOne', 'api::category.category'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -441,8 +439,12 @@ export interface ApiAgendaAgenda extends Struct.CollectionTypeSchema {
     >;
     position: Schema.Attribute.Integer;
     publishedAt: Schema.Attribute.DateTime;
-    slug: Schema.Attribute.UID<'titre'> & Schema.Attribute.Required;
-    titre: Schema.Attribute.String & Schema.Attribute.Required;
+    spectacle: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::spectacle.spectacle'
+    >;
+    type: Schema.Attribute.Enumeration<['spectacle', 'plus_qu_une_piece']> &
+      Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -513,34 +515,6 @@ export interface ApiAuthorAuthor extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     name: Schema.Attribute.String;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
-  collectionName: 'categories';
-  info: {
-    displayName: 'Category';
-    pluralName: 'categories';
-    singularName: 'category';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::category.category'
-    > &
-      Schema.Attribute.Private;
-    name: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -725,6 +699,7 @@ export interface ApiSpectacleSpectacle extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    agenda: Schema.Attribute.Relation<'oneToMany', 'api::agenda.agenda'>;
     cast: Schema.Attribute.Component<'cast.cast-member', true>;
     color: Schema.Attribute.String &
       Schema.Attribute.CustomField<'plugin::color-picker.color'>;
@@ -1271,7 +1246,6 @@ declare module '@strapi/strapi' {
       'api::agenda.agenda': ApiAgendaAgenda;
       'api::article.article': ApiArticleArticle;
       'api::author.author': ApiAuthorAuthor;
-      'api::category.category': ApiCategoryCategory;
       'api::global.global': ApiGlobalGlobal;
       'api::legende.legende': ApiLegendeLegende;
       'api::membre.membre': ApiMembreMembre;
