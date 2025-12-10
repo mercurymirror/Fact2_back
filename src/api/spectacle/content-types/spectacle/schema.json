@@ -73,6 +73,10 @@
       "relation": "oneToMany",
       "target": "api::agenda.agenda",
       "mappedBy": "spectacle"
+    },
+    "statut": {
+      "type": "string",
+      "maxLength": 45
     }
   }
 }
