@@ -721,7 +721,6 @@ export interface ApiSpectacleSpectacle extends Struct.CollectionTypeSchema {
       'api::spectacle.spectacle'
     > &
       Schema.Attribute.Private;
-    plus_qu_une_piece: Schema.Attribute.Blocks;
     plus_qu_une_pieces: Schema.Attribute.Relation<
       'oneToMany',
       'api::plus-qu-une-piece.plus-qu-une-piece'

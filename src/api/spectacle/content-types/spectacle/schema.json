@@ -54,9 +54,6 @@
     "position": {
       "type": "integer"
     },
-    "plus_qu_une_piece": {
-      "type": "blocks"
-    },
     "secondaryColor": {
       "type": "customField",
       "customField": "plugin::color-picker.color",
