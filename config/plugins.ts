@@ -16,4 +16,7 @@ module.exports = ({ env }) => ({
   "drag-drop-content-types-strapi5": {
     enabled: true,
   },
+  seo: {
+    enabled: true,
+  },
 });
