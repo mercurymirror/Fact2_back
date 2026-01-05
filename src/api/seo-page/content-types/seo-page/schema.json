@@ -1,0 +1,51 @@
+{
+  "kind": "singleType",
+  "collectionName": "seo_pages",
+  "info": {
+    "singularName": "seo-page",
+    "pluralName": "seo-pages",
+    "displayName": "SEO Pages",
+    "description": "Gérer le SEO des pages statiques du site"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "spectaclesPage": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    },
+    "agendaPage": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    },
+    "membresPage": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    },
+    "podcastsPage": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    },
+    "legendePage": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    },
+    "bouillonPage": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    },
+    "infosPage": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    }
+  }
+}

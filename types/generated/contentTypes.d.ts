@@ -693,6 +693,41 @@ export interface ApiPodcastPodcast extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiSeoPageSeoPage extends Struct.SingleTypeSchema {
+  collectionName: 'seo_pages';
+  info: {
+    description: 'G\u00E9rer le SEO des pages statiques du site';
+    displayName: 'SEO Pages';
+    pluralName: 'seo-pages';
+    singularName: 'seo-page';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    agendaPage: Schema.Attribute.Component<'shared.seo', false>;
+    bouillonPage: Schema.Attribute.Component<'shared.seo', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    infosPage: Schema.Attribute.Component<'shared.seo', false>;
+    legendePage: Schema.Attribute.Component<'shared.seo', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::seo-page.seo-page'
+    > &
+      Schema.Attribute.Private;
+    membresPage: Schema.Attribute.Component<'shared.seo', false>;
+    podcastsPage: Schema.Attribute.Component<'shared.seo', false>;
+    publishedAt: Schema.Attribute.DateTime;
+    spectaclesPage: Schema.Attribute.Component<'shared.seo', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiSpectacleSpectacle extends Struct.CollectionTypeSchema {
   collectionName: 'spectacles';
   info: {
@@ -1259,6 +1294,7 @@ declare module '@strapi/strapi' {
       'api::membre.membre': ApiMembreMembre;
       'api::plus-qu-une-piece.plus-qu-une-piece': ApiPlusQuUnePiecePlusQuUnePiece;
       'api::podcast.podcast': ApiPodcastPodcast;
+      'api::seo-page.seo-page': ApiSeoPageSeoPage;
       'api::spectacle.spectacle': ApiSpectacleSpectacle;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
