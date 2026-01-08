@@ -74,6 +74,9 @@
     "statut": {
       "type": "string",
       "maxLength": 45
+    },
+    "styledTitle": {
+      "type": "string"
     }
   }
 }

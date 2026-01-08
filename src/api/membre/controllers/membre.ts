@@ -2,9 +2,9 @@
  * membre controller
  */
 
-import { factories } from '@strapi/strapi'
+import { factories } from "@strapi/strapi";
 
-export default factories.createCoreController('api::membre.membre', () => ({
+export default factories.createCoreController("api::membre.membre", () => ({
   async find(ctx) {
     // Populate participations avec uniquement le titre et slug du spectacle
     ctx.query = {
@@ -14,11 +14,11 @@ export default factories.createCoreController('api::membre.membre', () => ({
         participations: {
           populate: {
             spectacle: {
-              fields: ['title', 'slug']
-            }
-          }
-        }
-      }
+              fields: ["title", "styledTitle", "slug"],
+            },
+          },
+        },
+      },
     };
 
     const { data, meta } = await super.find(ctx);
@@ -34,14 +34,14 @@ export default factories.createCoreController('api::membre.membre', () => ({
         participations: {
           populate: {
             spectacle: {
-              fields: ['title', 'slug']
-            }
-          }
-        }
-      }
+              fields: ["title", "styledTitle", "slug"],
+            },
+          },
+        },
+      },
     };
 
     const { data, meta } = await super.findOne(ctx);
     return { data, meta };
-  }
+  },
 }));

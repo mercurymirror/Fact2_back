@@ -2,6 +2,29 @@
  * agenda controller
  */
 
-import { factories } from '@strapi/strapi'
+import { factories } from "@strapi/strapi";
 
-export default factories.createCoreController('api::agenda.agenda');
+export default factories.createCoreController("api::agenda.agenda", () => ({
+  async find(ctx) {
+    // Populate les relations nécessaires pour l'affichage de l'agenda
+    ctx.query = {
+      ...ctx.query,
+      populate: {
+        spectacle: {
+          fields: ["id", "title", "slug", "color", "styledTitle"],
+        },
+        plus_qu_une_piece: {
+          fields: ["id", "title", "slug", "color", "styledTitle"],
+          populate: {
+            spectacle: {
+              fields: ["id", "title", "slug", "color"],
+            },
+          },
+        },
+      },
+    };
+
+    const { data, meta } = await super.find(ctx);
+    return { data, meta };
+  },
+}));

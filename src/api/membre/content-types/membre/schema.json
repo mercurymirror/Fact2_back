@@ -22,7 +22,10 @@
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": ["images", "files"]
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
     },
     "slug": {
       "type": "uid",
@@ -37,6 +40,14 @@
     "statut": {
       "type": "string",
       "maxLength": 45
+    },
+    "styledName": {
+      "type": "string"
+    },
+    "color": {
+      "type": "customField",
+      "customField": "plugin::color-picker.color",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
     }
   }
 }
