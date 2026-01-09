@@ -105,9 +105,6 @@ async function validateAgenda(data, existing) {
     existing?.plus_qu_une_piece
   );
 
-  console.log("État final - Spectacle:", spectacleFinalState);
-  console.log("État final - Plus qu'une pièce:", plusQuUnePieceFinalState);
-
   // Validation stricte selon le type
   if (data.type === "spectacle") {
     // Vérifier que spectacle sera rempli après sauvegarde

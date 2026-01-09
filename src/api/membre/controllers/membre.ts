@@ -6,18 +6,13 @@ import { factories } from "@strapi/strapi";
 
 export default factories.createCoreController("api::membre.membre", () => ({
   async find(ctx) {
-    // Populate participations avec uniquement le titre et slug du spectacle
+    // Pour la liste : uniquement l'illustration
+    // Utilisé dans : home, infos, generateStaticParams
+    // Aucun de ces usages n'a besoin des participations
     ctx.query = {
       ...ctx.query,
       populate: {
         illustration: true,
-        participations: {
-          populate: {
-            spectacle: {
-              fields: ["title", "styledTitle", "slug"],
-            },
-          },
-        },
       },
     };
 
@@ -26,7 +21,7 @@ export default factories.createCoreController("api::membre.membre", () => ({
   },
 
   async findOne(ctx) {
-    // Populate participations avec uniquement le titre et slug du spectacle
+    // Pour le détail : tout avec les participations
     ctx.query = {
       ...ctx.query,
       populate: {

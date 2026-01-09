@@ -11,13 +11,13 @@ export default factories.createCoreController("api::agenda.agenda", () => ({
       ...ctx.query,
       populate: {
         spectacle: {
-          fields: ["id", "title", "slug", "color", "styledTitle"],
+          fields: ["id", "title", "slug", "color", "styledTitle", "image"],
         },
         plus_qu_une_piece: {
           fields: ["id", "title", "slug", "color", "styledTitle"],
           populate: {
             spectacle: {
-              fields: ["id", "title", "slug", "color"],
+              fields: ["id", "title", "slug", "color", "image"],
             },
           },
         },
