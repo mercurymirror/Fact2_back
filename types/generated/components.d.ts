@@ -8,7 +8,7 @@ export interface CastCastMember extends Struct.ComponentSchema {
   };
   attributes: {
     fonction: Schema.Attribute.String & Schema.Attribute.Required;
-    name: Schema.Attribute.String & Schema.Attribute.Required;
+    name: Schema.Attribute.Text & Schema.Attribute.Required;
   };
 }
 
