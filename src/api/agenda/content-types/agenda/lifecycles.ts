@@ -21,6 +21,14 @@ module.exports = {
 };
 
 async function validateAgenda(data, existing) {
+  // DEBUG: Afficher les données reçues
+  console.log("=== VALIDATION AGENDA ===");
+  console.log("data.type:", data.type);
+  console.log("data.spectacle:", JSON.stringify(data.spectacle, null, 2));
+  console.log("data.plus_qu_une_piece:", JSON.stringify(data.plus_qu_une_piece, null, 2));
+  console.log("existing:", JSON.stringify(existing, null, 2));
+  console.log("=========================");
+
   // Si pas de type, laisser Strapi gérer la validation
   if (!data.type) {
     return;
@@ -57,8 +65,8 @@ async function validateAgenda(data, existing) {
         return dataValue.set.length > 0 ? "filled" : "empty";
       }
 
-      // Format "connect/disconnect" - modification incrémentale
-      if ("connect" in dataValue && "disconnect" in dataValue) {
+      // Format "connect" ou "connect/disconnect" - modification incrémentale
+      if ("connect" in dataValue) {
         // Si on connecte quelque chose, c'est rempli
         if (Array.isArray(dataValue.connect) && dataValue.connect.length > 0) {
           return "filled";
