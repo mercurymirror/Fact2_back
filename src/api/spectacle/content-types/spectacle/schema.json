@@ -77,6 +77,14 @@
     },
     "styledTitle": {
       "type": "string"
+    },
+    "dossier_de_diffusion": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
     }
   }
 }
