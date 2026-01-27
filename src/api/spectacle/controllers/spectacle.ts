@@ -9,6 +9,7 @@ const DEFAULT_POPULATE = {
   cast: true,
   image: true,
   gallery: true,
+  dossier_de_diffusion: true,
   plus_qu_une_pieces: {
     populate: {
       cast: true,
