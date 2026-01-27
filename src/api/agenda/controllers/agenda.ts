@@ -11,7 +11,7 @@ export default factories.createCoreController("api::agenda.agenda", () => ({
       ...ctx.query,
       populate: {
         spectacle: {
-          fields: ["id", "title", "slug", "color", "styledTitle"],
+          fields: ["id", "title", "slug", "color", "secondaryColor", "styledTitle"],
           populate: {
             image: {
               fields: ["id", "url", "alternativeText"],
@@ -22,7 +22,7 @@ export default factories.createCoreController("api::agenda.agenda", () => ({
           fields: ["id", "title", "slug", "color", "styledTitle"],
           populate: {
             spectacle: {
-              fields: ["id", "title", "slug", "color"],
+              fields: ["id", "title", "slug", "color", "secondaryColor"],
               populate: {
                 image: {
                   fields: ["id", "url", "alternativeText"],
