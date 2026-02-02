@@ -6,10 +6,12 @@
   "options": {},
   "attributes": {
     "mot": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "definition": {
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "illustration": {
       "type": "media",

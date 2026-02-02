@@ -17,7 +17,8 @@
       "repeatable": true
     },
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "gallery": {
       "type": "media",
@@ -34,7 +35,8 @@
     },
     "slug": {
       "type": "uid",
-      "targetField": "title"
+      "targetField": "title",
+      "required": true
     },
     "color": {
       "type": "customField",
