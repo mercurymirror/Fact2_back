@@ -52,9 +52,9 @@ export interface SharedDefinition extends Struct.ComponentSchema {
     displayName: 'Definition';
   };
   attributes: {
-    definition: Schema.Attribute.Text;
+    definition: Schema.Attribute.Text & Schema.Attribute.Required;
     illustration: Schema.Attribute.Media<'files' | 'images'>;
-    mot: Schema.Attribute.String;
+    mot: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -112,7 +112,7 @@ export interface SharedRichText extends Struct.ComponentSchema {
     icon: 'align-justify';
   };
   attributes: {
-    body: Schema.Attribute.RichText;
+    body: Schema.Attribute.RichText & Schema.Attribute.Required;
   };
 }
 

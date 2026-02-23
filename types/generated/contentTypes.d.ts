@@ -649,13 +649,13 @@ export interface ApiPlusQuUnePiecePlusQuUnePiece
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    slug: Schema.Attribute.UID<'title'>;
+    slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
     spectacle: Schema.Attribute.Relation<
       'manyToOne',
       'api::spectacle.spectacle'
     >;
     styledTitle: Schema.Attribute.String;
-    title: Schema.Attribute.String;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -690,7 +690,7 @@ export interface ApiPodcastPodcast extends Struct.CollectionTypeSchema {
     mediaplayer: Schema.Attribute.Text;
     publishedAt: Schema.Attribute.DateTime;
     text: Schema.Attribute.RichText;
-    title: Schema.Attribute.String;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -769,7 +769,7 @@ export interface ApiSpectacleSpectacle extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     secondaryColor: Schema.Attribute.String &
       Schema.Attribute.CustomField<'plugin::color-picker.color'>;
-    slug: Schema.Attribute.UID<'title'>;
+    slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
     statut: Schema.Attribute.String &
       Schema.Attribute.SetMinMaxLength<{
         maxLength: 45;
@@ -779,6 +779,7 @@ export interface ApiSpectacleSpectacle extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    video: Schema.Attribute.Media<'files' | 'videos'>;
   };
 }
 
