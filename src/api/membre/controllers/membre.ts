@@ -6,13 +6,26 @@ import { factories } from "@strapi/strapi";
 
 export default factories.createCoreController("api::membre.membre", () => ({
   async find(ctx) {
-    // Pour la liste : uniquement l'illustration
-    // Utilisé dans : home, infos, generateStaticParams
-    // Aucun de ces usages n'a besoin des participations
+    // Si un filtre par slug est présent (page détail), on inclut les participations.
+    // Sinon (liste), on ne peuple que l'illustration.
+    const filters = ctx.query?.filters as Record<string, unknown> | undefined;
+    const hasSlugFilter = !!(filters && "slug" in filters);
+
     ctx.query = {
       ...ctx.query,
       populate: {
         illustration: true,
+        ...(hasSlugFilter
+          ? {
+              participations: {
+                populate: {
+                  spectacle: {
+                    fields: ["title", "styledTitle", "slug"],
+                  },
+                },
+              },
+            }
+          : {}),
       },
     };
 
