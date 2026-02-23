@@ -81,7 +81,7 @@
     },
     "dossier_de_diffusion": {
       "type": "media",
-      "multiple": false,
+      "multiple": true,
       "allowedTypes": [
         "images",
         "files"

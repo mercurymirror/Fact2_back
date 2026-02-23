@@ -751,7 +751,7 @@ export interface ApiSpectacleSpectacle extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.RichText;
-    dossier_de_diffusion: Schema.Attribute.Media<'images' | 'files'>;
+    dossier_de_diffusion: Schema.Attribute.Media<'images' | 'files', true>;
     encours: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     gallery: Schema.Attribute.Media<'images', true>;
     image: Schema.Attribute.Media<'images'>;
