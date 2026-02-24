@@ -88,12 +88,7 @@
       ]
     },
     "video": {
-      "type": "media",
-      "multiple": false,
-      "allowedTypes": [
-        "files",
-        "videos"
-      ]
+      "type": "string"
     }
   }
 }

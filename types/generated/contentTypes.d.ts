@@ -780,7 +780,7 @@ export interface ApiSpectacleSpectacle extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    video: Schema.Attribute.Media<'files' | 'videos'>;
+    video: Schema.Attribute.String;
   };
 }
 
