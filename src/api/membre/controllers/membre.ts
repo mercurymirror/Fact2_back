@@ -15,6 +15,7 @@ export default factories.createCoreController("api::membre.membre", () => ({
       ...ctx.query,
       populate: {
         illustration: true,
+        gallery: true,
         ...(hasSlugFilter
           ? {
               participations: {
