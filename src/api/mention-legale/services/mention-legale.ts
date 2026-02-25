@@ -1,5 +1,5 @@
 /**
- * mentions-legales service
+ * mention-legale service
  */
 
 import { factories } from '@strapi/strapi';

@@ -1,7 +1,7 @@
 /**
- * mentions-legales controller
+ * mention-legale controller
  */
 
-import { factories } from '@strapi/strapi';
+import { factories } from '@strapi/strapi'
 
 export default factories.createCoreController('api::mention-legale.mention-legale');

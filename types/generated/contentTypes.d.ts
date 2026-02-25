@@ -623,6 +623,33 @@ export interface ApiMembreMembre extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiMentionLegaleMentionLegale extends Struct.SingleTypeSchema {
+  collectionName: 'mention_legales';
+  info: {
+    displayName: 'Mentions l\u00E9gales';
+    pluralName: 'mention-legales';
+    singularName: 'mention-legale';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::mention-legale.mention-legale'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiPlusQuUnePiecePlusQuUnePiece
   extends Struct.CollectionTypeSchema {
   collectionName: 'plus_qu_une_pieces';
@@ -1300,6 +1327,7 @@ declare module '@strapi/strapi' {
       'api::global.global': ApiGlobalGlobal;
       'api::legende.legende': ApiLegendeLegende;
       'api::membre.membre': ApiMembreMembre;
+      'api::mention-legale.mention-legale': ApiMentionLegaleMentionLegale;
       'api::plus-qu-une-piece.plus-qu-une-piece': ApiPlusQuUnePiecePlusQuUnePiece;
       'api::podcast.podcast': ApiPodcastPodcast;
       'api::seo-page.seo-page': ApiSeoPageSeoPage;

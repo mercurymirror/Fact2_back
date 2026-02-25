@@ -1,25 +1,21 @@
 {
   "kind": "singleType",
-  "collectionName": "mentions_legales",
+  "collectionName": "mention_legales",
   "info": {
     "singularName": "mention-legale",
-    "pluralName": "mentions-legales",
-    "displayName": "Mentions légales",
-    "description": "Informations légales et politique de confidentialité du site"
+    "pluralName": "mention-legales",
+    "displayName": "Mentions légales"
   },
   "options": {
-    "draftAndPublish": false
+    "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
     "editeur_nom": {
-      "type": "string",
-      "required": true,
-      "default": "Compagnie FACT"
+      "type": "string"
     },
     "editeur_forme_juridique": {
-      "type": "string",
-      "default": "Association loi 1901"
+      "type": "string"
     },
     "editeur_adresse": {
       "type": "text"
@@ -34,16 +30,13 @@
       "type": "email"
     },
     "hebergeur_frontend": {
-      "type": "text",
-      "default": "Vercel Inc."
+      "type": "string"
     },
     "hebergeur_cms": {
-      "type": "text",
-      "default": "Strapi"
+      "type": "string"
     },
     "hebergeur_medias": {
-      "type": "text",
-      "default": "Cloudinary"
+      "type": "string"
     },
     "date_mise_a_jour": {
       "type": "date"
