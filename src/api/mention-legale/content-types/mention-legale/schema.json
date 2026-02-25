@@ -2,7 +2,7 @@
   "kind": "singleType",
   "collectionName": "mentions_legales",
   "info": {
-    "singularName": "mentions-legales",
+    "singularName": "mention-legale",
     "pluralName": "mentions-legales",
     "displayName": "Mentions légales",
     "description": "Informations légales et politique de confidentialité du site"

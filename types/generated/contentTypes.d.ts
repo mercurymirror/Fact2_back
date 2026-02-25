@@ -555,44 +555,6 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiMentionsLegalesMentionsLegales extends Struct.SingleTypeSchema {
-  collectionName: 'mentions_legales';
-  info: {
-    description: 'Informations légales et politique de confidentialité du site';
-    displayName: 'Mentions légales';
-    pluralName: 'mentions-legales';
-    singularName: 'mentions-legales';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    date_mise_a_jour: Schema.Attribute.Date;
-    editeur_adresse: Schema.Attribute.Text;
-    editeur_directeur_publication: Schema.Attribute.String;
-    editeur_email: Schema.Attribute.Email;
-    editeur_forme_juridique: Schema.Attribute.String;
-    editeur_nom: Schema.Attribute.String & Schema.Attribute.Required;
-    editeur_siren: Schema.Attribute.String;
-    hebergeur_cms: Schema.Attribute.Text;
-    hebergeur_frontend: Schema.Attribute.Text;
-    hebergeur_medias: Schema.Attribute.Text;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::mentions-legales.mentions-legales'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiLegendeLegende extends Struct.SingleTypeSchema {
   collectionName: 'legendes';
   info: {
@@ -1337,7 +1299,6 @@ declare module '@strapi/strapi' {
       'api::author.author': ApiAuthorAuthor;
       'api::global.global': ApiGlobalGlobal;
       'api::legende.legende': ApiLegendeLegende;
-      'api::mentions-legales.mentions-legales': ApiMentionsLegalesMentionsLegales;
       'api::membre.membre': ApiMembreMembre;
       'api::plus-qu-une-piece.plus-qu-une-piece': ApiPlusQuUnePiecePlusQuUnePiece;
       'api::podcast.podcast': ApiPodcastPodcast;
