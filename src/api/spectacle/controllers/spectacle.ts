@@ -4,16 +4,18 @@
 
 import { factories } from "@strapi/strapi";
 
+const IMAGE_FIELDS = ["url", "alternativeText", "width", "height"];
+
 // Configuration centralisée du populate
 const DEFAULT_POPULATE = {
   cast: true,
-  image: true,
-  gallery: true,
+  image: { fields: IMAGE_FIELDS },
+  gallery: { fields: IMAGE_FIELDS },
   dossier_de_diffusion: true,
   plus_qu_une_pieces: {
     populate: {
       cast: true,
-      gallery: true,
+      gallery: { fields: IMAGE_FIELDS },
     },
   },
 };
