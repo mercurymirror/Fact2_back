@@ -20,6 +20,7 @@ export default factories.createCoreController('api::legende.legende', () => ({
                 },
               },
             },
+            'shared.rich-text': { populate: '*' },
           },
         },
       },
