@@ -14,7 +14,8 @@
     "layout": {
       "type": "dynamiczone",
       "components": [
-        "shared.glossaire"
+        "shared.glossaire",
+        "shared.rich-text"
       ]
     }
   }
