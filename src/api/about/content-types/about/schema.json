@@ -34,6 +34,9 @@
       "type": "component",
       "component": "shared.infos",
       "repeatable": false
+    },
+    "newsletter_link": {
+      "type": "string"
     }
   }
 }
