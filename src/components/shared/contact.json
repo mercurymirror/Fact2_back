@@ -6,57 +6,10 @@
   },
   "options": {},
   "attributes": {
-    "mail": {
-      "type": "email"
-    },
-    "phone": {
-      "type": "string"
-    },
-    "facebook": {
-      "type": "string"
-    },
-    "instagram": {
-      "type": "string"
-    },
-    "iconMail": {
-      "type": "media",
-      "multiple": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
-    "iconPhone": {
-      "type": "media",
-      "multiple": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
-    "IconFb": {
-      "type": "media",
-      "multiple": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
-    "IconIg": {
-      "type": "media",
-      "multiple": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
+    "links": {
+      "type": "component",
+      "component": "shared.contact-link",
+      "repeatable": true
     }
   },
   "config": {}

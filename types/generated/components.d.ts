@@ -35,14 +35,20 @@ export interface SharedContact extends Struct.ComponentSchema {
     icon: 'envelop';
   };
   attributes: {
-    facebook: Schema.Attribute.String;
-    IconFb: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    IconIg: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    iconMail: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    iconPhone: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    instagram: Schema.Attribute.String;
-    mail: Schema.Attribute.Email;
-    phone: Schema.Attribute.String;
+    links: Schema.Attribute.Component<'shared.contact-link', true>;
+  };
+}
+
+export interface SharedContactLink extends Struct.ComponentSchema {
+  collectionName: 'components_shared_contact_links';
+  info: {
+    displayName: 'Contact Link';
+    icon: 'link';
+  };
+  attributes: {
+    icon: Schema.Attribute.Media<'images' | 'files'>;
+    link: Schema.Attribute.String;
+    text: Schema.Attribute.String;
   };
 }
 
@@ -149,6 +155,7 @@ declare module '@strapi/strapi' {
       'cast.cast-member': CastCastMember;
       'membre.participation': MembreParticipation;
       'shared.contact': SharedContact;
+      'shared.contact-link': SharedContactLink;
       'shared.definition': SharedDefinition;
       'shared.glossaire': SharedGlossaire;
       'shared.infos': SharedInfos;

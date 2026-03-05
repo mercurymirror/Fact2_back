@@ -637,6 +637,16 @@ export interface ApiMentionLegaleMentionLegale extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    date_mise_a_jour: Schema.Attribute.Date;
+    editeur_adresse: Schema.Attribute.Text;
+    editeur_directeur_publication: Schema.Attribute.String;
+    editeur_email: Schema.Attribute.Email;
+    editeur_forme_juridique: Schema.Attribute.String;
+    editeur_nom: Schema.Attribute.String;
+    editeur_siren: Schema.Attribute.String;
+    hebergeur_cms: Schema.Attribute.String;
+    hebergeur_frontend: Schema.Attribute.String;
+    hebergeur_medias: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
